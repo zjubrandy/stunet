@@ -10,9 +10,9 @@ def parse_args():
     # dataset
     parser.add_argument('--dataset-name', type=str, default='Vaihingen')
     parser.add_argument('--train-data-root', type=str,
-                        default='/home/students/master/2022/wangzy/PyCharm-Remote/ST_Unet_test/Vaihingen_Img/Train/')
+                        default='/mnt/12T/wm/baseline/ST_Unet_pytorch_Semantic-segmentation/dataset/Vinh/train/')
     parser.add_argument('--val-data-root', type=str,
-                        default='/home/students/master/2022/wangzy/PyCharm-Remote/ST_Unet_test/Vaihingen_Img/Test/')
+                        default='/mnt/12T/wm/baseline/ST_Unet_pytorch_Semantic-segmentation/dataset/Vinh/val/')
     parser.add_argument('--train-batch-size', type=int, default=8, metavar='N',
                         help='batch size for training (default:16)')
     parser.add_argument('--val-batch-size', type=int, default=8, metavar='N',
@@ -23,8 +23,8 @@ def parse_args():
     parser.add_argument('--experiment-start-time', type=str,
                         default=time.strftime('%m-%d-%H:%M:%S', time.localtime(time.time())))
     parser.add_argument('--save-pseudo-data-path', type=str,
-                        default='/home/students/master/2022/wangzy/PyCharm-Remote/ST_Unet_test/pseudo_data')
-    parser.add_argument('--save-file', default=False)
+                        default='/mnt/12T/wm/baseline/ST_Unet_pytorch_Semantic-segmentation/result/')
+    parser.add_argument('--save-file', default='/mnt/12T/wm/baseline/ST_Unet_pytorch_Semantic-segmentation/save_file')
 
     # augmentation
     parser.add_argument('--base-size', type=int, default=256, help='base image size')

@@ -93,7 +93,7 @@ def snapshot_forward(model, dataloader, model_list, png, shape):
 def parse_args():
     parser = argparse.ArgumentParser(description="膨胀预测")
     parser.add_argument('--test-data-root', type=str,
-                        default="/home/students/master/2022/wangzy/dataset/Vaihingen/Train/image/top_mosaic_09cm_area13.tif")
+                        default="/mnt/12T/wm/baseline/ST_Unet_pytorch_Semantic-segmentation/dataset/Vinh/val/image256/2132_1.png")
     parser.add_argument('--test-batch-size', type=int, default=4, metavar='N',
                         help='batch size for testing (default:16)')
     parser.add_argument('--num_workers', type=int, default=0)

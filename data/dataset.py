@@ -37,26 +37,26 @@ class RSDataset(Dataset):
             key_word = 'val_data'
         else:
             key_word = 'test_data'
-
+        '''
         if mode == "src":
             img_dir = os.path.join(root, 'rgb')
             mask_dir = os.path.join(root, 'label')
+        
         else:
             for dirname in os.listdir(root):
                 # 进入选定的文件夹
                 if dirname == key_word in dirname:
                     break
-
+        '''
             # 读取其中的图像数据
 
-            img_dir = os.path.join(root, dirname, 'rgb')
-            mask_dir = os.path.join(root, dirname, 'label')
+        img_dir = os.path.join(root, 'image256')
+        mask_dir = os.path.join(root, 'mask256')
 
         # 将相应的图像数据进行保存
         for img_filename in os.listdir(img_dir):
             img_mask_pair = (os.path.join(img_dir, img_filename),
-                             os.path.join(mask_dir,
-                                          img_filename.replace(img_filename[-8:], "label_" + img_filename[-8:])))
+                             os.path.join(mask_dir,img_filename))
 
             self.sync_img_mask.append(img_mask_pair)
 

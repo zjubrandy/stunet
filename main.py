@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 
 from configs.configs import parse_args
-from model.deeplabv3_version_1.deeplabv3 import DeepLabV3
-from model.Unet.Unet import Unet
+#from model.deeplabv3_version_1.deeplabv3 import DeepLabV3
+#from model.Unet.Unet import Unet
 # from model.ST_Unet.vit_seg_modeling import VisionTransformer
 # from model.ST_Unet.vit_seg_configs import get_r50_b16_config
 from model.SwinUnet.vision_transformer import SwinUnet
@@ -34,7 +34,7 @@ torch.cuda.empty_cache()
 # # 设置GPU的序列号
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"  # 设置采用的GPU序号
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 设置采用的GPU序号
 
 
 def main():
@@ -51,7 +51,7 @@ def main():
     val_loader = data_set(args)[2]
 
     # 训练的相关配置
-    device = torch.device("cuda:2")
+    device = torch.device("cuda:0")
 
     # 加载模型
     if args.model == "Unet":
@@ -79,7 +79,7 @@ def main():
     criterion2 = DiceLoss(6).to(device)
 
     # 优化器选择
-    optimizer = close_optimizer(args, model).to(device)
+    optimizer = close_optimizer(args, model)#.to(device)
 
     # 将相应的参数进行打印
     Print_data(args.dataset_name, train_dataset.class_names,
